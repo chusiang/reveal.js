@@ -69,7 +69,7 @@
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
-						<h2>為何 Multi-site？</h2>
+						<h2>1. 為何 Multi-site？</h2>
 						<a href="#" class="test">
 							<img src="images/2013-06-30-multisite.jpg" width="500" alt="2013-06-30-multisite.jpg">
 						</a>
@@ -84,24 +84,27 @@
 						<br />
 						(實作出來的請舉著！)
 					</section>
+
 					<section>
-						<h2>1. 使用單個 Database 實作</h2>
+						<h2>1.1. 使用單個 Database 實作</h2>
 						<p>
 							適合空間受限者使用，效能較佳，易於帳號整合。 <br />
 							<br />
 							(d7db)
 						</p>
 					</section>
+
 					<section>
-						<h2>2. 使用多個 Database 實作</h2>
+						<h2>1.2. 使用多個 Database 實作</h2>
 						<p>
 							適合大型網站使用，效能略差，但易於 <strike>上手</strike> 切割、移轉。 <br />
 							<br />
 							(s1db, s2db, s3db ......)
 						</p>
 					</section>
+
 					<section>
-						<h2>Reference</h2>
+						<h2>1.3. Reference</h2>
 						<p>
 						- <a href="https://drupal.org/documentation/install/multi-site" target="_blank">Multisite - Sharing the same code base | drupal.org</a>
 						</p>
@@ -110,45 +113,198 @@
 
 				<section>
 					<section>
-					<h2>何為多個 Drupal Core (核心)？</h2>
+					<h2>2. 何為多個 Drupal Core (核心)？</h2>
+					<p>
+						- 在 DocumentRoot 底下有多個 Drupal。
+					</p>
 					<br />
 					<p>
-						站台1 - <i>http://pig.tw/d7_1/</i> <br />
-						站台2 - <i>http://pig.tw/d7_2/</i> <br />
-						站台3 - <i>http://pig.tw/d7_3/</i> <br />
+						site1 - <i>http://pig.tw/d7_s1/</i> <br />
+						site2 - <i>http://pig.tw/d7_s2/</i> <br />
+						site3 - <i>http://pig.tw/d7_s3/</i> <br />
+					</p>
+					</section>
+
+					<section>
+					<h2>2.1. on Linux</h2>
+					<br />
+					<h3>DocumentRoot</h3>
+					<p>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+[ jonny@wheezy ~ ]$ ls /var/www
+d7_s1  d7_s2  d7_s3  index.html
+						</code></pre>
+					</p>
+					<br />
+					<h3>Sites</h3>
+					<p>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+[ jonny@wheezy ~ ]$ ls /var/www/d7_s1/sites/
+all  default example.sites.php  README.txt
+						</code></pre>
+
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+[ jonny@wheezy ~ ]$ ls /var/www/d7_s2/sites/
+all  default example.sites.php  README.txt
+						</code></pre>
+
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+[ jonny@wheezy ~ ]$ ls /var/www/d7_s3/sites/
+all  default example.sites.php  README.txt
+						</code></pre>
+					</p>
+					</section>
+
+					<section>
+					<h2>2.2. on Windows</h2>
+					<br />
+					<h3>DocumentRoot</h3>
+					<p>
+						...
+					</p>
+					<br />
+					<h3>Sites</h3>
+					<p>
+					</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+					<h2>3. 何為共用 Drupal Core (核心)？</h2>
+					<p>
+						- 在 DocumentRoot 底下只有一個 Drupal。
+					</p>
+					<br />
+					<p>
+						site1 - <i>http://s1.pig.tw/</i> <br />
+						site2 - <i>http://s2.pig.tw/</i> <br />
+						site3 - <i>http://s3.pig.tw/</i> <br />
 					</p>
 					</section>
 					<section>
-					<h2>111何為多個 Drupal Core (核心)？</h2>
+					<h2>3.1. on Linux</h2>
+					<br />
+					<h3>DocumentRoot</h3>
+					<p>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+[ jonny@wheezy ~ ]$ ls /var/www
+d7  index.html
+						</code></pre>
+					</p>
+					<br />
+					<h3>Sites</h3>
+					<p>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+[ jonny@wheezy ~ ]$ ls /var/www/drupal7/sites/
+all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
+						</code></pre>
+					</p>
+
+					</section>
+					<section>
+					<h2>3.2. on Windows</h2>
+					<br />
+					<h3>DocumentRoot</h3>
+					<p>
+						...
+					</p>
+					<br />
+					<h3>Sites</h3>
+					<p>
+					</p>
 					</section>
 				</section>
 
 				<section>
-					<h2>Point of View</h2>
+					<section>
+					<h2>4. 何為共用 Modules (模組), Themes (怖景主題)？</h2>
 					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
+						- 共用 Drupal 時，將會分享 <i>sites/all</i> 目錄給各個網站。
 					</p>
+					<br />
 					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+						Modules - <i>sites/all/modules</i> <br />
+						Themes - <i>sites/all/themes</i> <br />
 					</p>
+					</section>
+					<section>
+					<h2>on Linux</h2>
+					<br />
+					<p>
+						...
+					</p>
+					</section>
+					<section>
+					<h2>on Windows</h2>
+					<br />
+					<p>
+						...
+					</p>
+					</section>
 				</section>
 
 				<section>
-					<h2>Works in Mobile Safari</h2>
+					<section>
+					<h2>共用 Modules, Themes 後如何建立獨立的 Module, Themes？</h2>
 					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
+						- 手動建立獨立的 modules, themes 目錄。
 					</p>
+					<br />
+					<h3>site1</h3>
+					<p>
+						<i>sites/default/modules</i> <br />
+						<i>sites/default/themes</i> <br />
+					</p>
+					<br />
+					<h3>site2</h3>
+					<p>
+						<i>sites/s1.pig.tw/modules</i> <br />
+						<i>sites/s1.pig.tw/themes</i> <br />
+					</p>
+					</section>
+					<section>
+					<h2>on Linux</h2>
+					<br />
+					<p>
+						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+#modules
+[ jonny@wheezy ~ ]$ mkdir /var/www/d7/sites/default/modules
+
+#themes
+[ jonny@wheezy ~ ]$ mkdir /var/www/d7/sites/default/themes
+						</code></pre>
+					</p>
+					<p>
+						...
+					</p>
+					</section>
+					<section>
+					<h2>on Windows</h2>
+					<br />
+					<p>
+						...
+					</p>
+					</section>
 				</section>
 
 				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
+					<section>
+					<h2>HowTo</h2>
+						
+					</section>
+
+					<section data-background="#8c4738">
+						<h2>Point</h2>
+						<br />
+						<p>
+							將多個 Domain name 指到同一個 Drupal，並設定對應的 Database 及 <a href="http://zh.wikipedia.org/wiki/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA">Virtual host</a> (讓同一個網頁伺服器使用多個 Domain name 的技術)。
+						</p>
+
+					</section>
 				</section>
+
+
 
 				<section>
 					<h2>Fantastic Ordered List</h2>
