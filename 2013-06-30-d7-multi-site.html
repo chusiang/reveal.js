@@ -155,17 +155,17 @@ all  default example.sites.php  README.txt
 					</p>
 					</section>
 
-					<section>
-					<h2>2.2. on Windows</h2>
-					<br />
-					<h3>DocumentRoot</h3>
-					<p>
-						...
-					</p>
-					<br />
-					<h3>Sites</h3>
-					<p>
-					</p>
+					<section data-background="#007777">
+						<h2>2.2. on Windows</h2>
+						<br />
+						<h3>DocumentRoot</h3>
+						<p>
+							...
+						</p>
+						<br />
+						<h3>Sites</h3>
+						<p>
+						</p>
 					</section>
 				</section>
 
@@ -202,103 +202,108 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 					</p>
 
 					</section>
-					<section>
-					<h2>3.2. on Windows</h2>
-					<br />
-					<h3>DocumentRoot</h3>
-					<p>
-						...
-					</p>
-					<br />
-					<h3>Sites</h3>
-					<p>
-					</p>
+					<section data-background="#007777">
+						<h2>3.2. on Windows</h2>
+						<br />
+						<h3>DocumentRoot</h3>
+						<p>
+							...
+						</p>
+						<br />
+						<h3>Sites</h3>
+						<p>
+						</p>
 					</section>
 				</section>
 
 				<section>
 					<section>
-					<h2>4. 何為共用 Modules (模組), Themes (怖景主題)？</h2>
-					<p>
-						- 共用 Drupal 時，將會分享 <i>sites/all</i> 目錄給各個網站。
-					</p>
-					<br />
-					<p>
-						Modules - <i>sites/all/modules</i> <br />
-						Themes - <i>sites/all/themes</i> <br />
-					</p>
+						<h2>4. 何為共用 Modules (模組), Themes (怖景主題)？</h2>
+						<p>
+							- 共用 Drupal 時，將會分享 <i>sites/all</i> 目錄給各個網站。
+						</p>
+						<br />
+						<p>
+							Modules - <i>sites/all/modules</i> <br />
+							Themes - <i>sites/all/themes</i> <br />
+						</p>
 					</section>
 					<section>
-					<h2>on Linux</h2>
-					<br />
-					<p>
-						...
-					</p>
+						<h2>on Linux</h2>
+						<br />
+						<p>
+							...
+						</p>
 					</section>
 					<section>
-					<h2>on Windows</h2>
-					<br />
-					<p>
-						...
-					</p>
+					<section data-background="#007777">
+						<br />
+						<p>
+							...
+						</p>
 					</section>
 				</section>
 
 				<section>
 					<section>
-					<h2>共用 Modules, Themes 後如何建立獨立的 Module, Themes？</h2>
-					<p>
-						- 手動建立獨立的 modules, themes 目錄。
-					</p>
-					<br />
-					<h3>site1</h3>
-					<p>
-						<i>sites/default/modules</i> <br />
-						<i>sites/default/themes</i> <br />
-					</p>
-					<br />
-					<h3>site2</h3>
-					<p>
-						<i>sites/s1.pig.tw/modules</i> <br />
-						<i>sites/s1.pig.tw/themes</i> <br />
-					</p>
+						<h2>共用 Modules, Themes 後如何建立獨立的 Module, Themes？</h2>
+						<p>
+							- 手動建立獨立的 modules, themes 目錄。
+						</p>
+						<br />
+						<h3>site1</h3>
+						<p>
+							<i>sites/default/modules</i> <br />
+							<i>sites/default/themes</i> <br />
+						</p>
+						<br />
+						<h3>site2</h3>
+						<p>
+							<i>sites/s1.pig.tw/modules</i> <br />
+							<i>sites/s1.pig.tw/themes</i> <br />
+						</p>
 					</section>
 					<section>
-					<h2>on Linux</h2>
-					<br />
-					<p>
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+						<h2>on Linux</h2>
+						<br />
+						<p>
+							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 #modules
 [ jonny@wheezy ~ ]$ mkdir /var/www/d7/sites/default/modules
 
 #themes
 [ jonny@wheezy ~ ]$ mkdir /var/www/d7/sites/default/themes
 						</code></pre>
-					</p>
-					<p>
-						...
-					</p>
+						</p>
+						<p>
+							...
+						</p>
 					</section>
-					<section>
-					<h2>on Windows</h2>
-					<br />
-					<p>
-						...
-					</p>
+					<section data-background="#007777">
+						<h2>on Windows</h2>
+						<br />
+						<p>
+							...
+						</p>
 					</section>
 				</section>
 
 				<section>
-					<section>
-					<h2>HowTo</h2>
-						
-					</section>
-
 					<section data-background="#8c4738">
-						<h2>Point</h2>
+					<h2>HowTo</h2>
 						<br />
 						<p>
 							將多個 Domain name 指到同一個 Drupal，並設定對應的 Database 及 <a href="http://zh.wikipedia.org/wiki/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA">Virtual host</a> (讓同一個網頁伺服器使用多個 Domain name 的技術)。
+						</p>
+					</section>
+
+					<section>
+						<h2>on Linux</h2>
+						<p>
+							<a href="images/2013-06-30-s1+s2.png" class="test">
+								<img src="images/2013-06-30-s1+s2.png" alt="2013-06-30-s1+s2.png">
+							</a>
+
 						</p>
 
 					</section>
