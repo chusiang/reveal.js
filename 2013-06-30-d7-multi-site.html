@@ -49,17 +49,14 @@
 					<h2>歡迎來到 Drupal 小聚</h2>
 					<br />
 					<p>
-						<center>
 						<a href="http://drupaltaiwan.org/" target="_blank"><img src="images/2013-06-30-drupal-logo.png" alt="drupal logo" title="drupal logo" /></a> <br />
 
 						&nbsp; &nbsp; &nbsp; &nbsp; ... <a href="http://www.drupalla.com/" target="_blank"><img src="images/2013-06-30-drupalla-logo.png" alt="drupalla logo" title="drupalla logo" /></a> <br />
-
-						<br />
-
-							(聽過 Multi-site 的請舉手！)
-						</center>
 					</p>
-
+					<br />
+					<p>
+						(聽過 Multi-site 的請舉手！)
+					</p>
 					<aside class="notes">
 						<!-- todo -->
 						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
@@ -82,11 +79,13 @@
 							</ul>
 						</p>
 						<br />
-						(實作出來的請舉著！)
+						<p>
+							(實作出來的請舉著！)
+						</p>
 					</section>
 
 					<section>
-						<h2>1.1. 使用單個 Database 實作</h2>
+						<h3>1.1. 使用單個 Database 實作</h3>
 						<p>
 							適合空間受限者使用，效能較佳，易於帳號整合。 <br />
 							<br />
@@ -95,7 +94,7 @@
 					</section>
 
 					<section>
-						<h2>1.2. 使用多個 Database 實作</h2>
+						<h3>1.2. 使用多個 Database 實作</h3>
 						<p>
 							適合大型網站使用，效能略差，但易於 <strike>上手</strike> 切割、移轉。 <br />
 							<br />
@@ -104,9 +103,11 @@
 					</section>
 
 					<section>
-						<h2>1.3. Reference</h2>
+						<h3>1.3. Reference</h3>
 						<p>
-						- <a href="https://drupal.org/documentation/install/multi-site" target="_blank">Multisite - Sharing the same code base | drupal.org</a>
+							<ol>
+								<li><a href="https://drupal.org/documentation/install/multi-site" target="_blank">Multisite - Sharing the same code base | drupal.org</a></li>
+							</ol>
 						</p>
 					</section>
 				</section>
@@ -115,7 +116,7 @@
 					<section>
 					<h2>2. 何為多個 Drupal Core (核心)？</h2>
 					<p>
-						- 在 DocumentRoot 底下有多個 Drupal。
+						在 DocumentRoot 底下有多個 Drupal。
 					</p>
 					<br />
 					<p>
@@ -126,44 +127,44 @@
 					</section>
 
 					<section>
-					<h2>2.1. on Linux</h2>
-					<br />
-					<h3>DocumentRoot</h3>
-					<p>
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+						<h3>2.1. on Linux</h3>
+						<br />
+						<h4>DocumentRoot</h4>
+						<p>
+							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 [ jonny@wheezy ~ ]$ ls /var/www
 d7_s1  d7_s2  d7_s3  index.html
-						</code></pre>
-					</p>
-					<br />
-					<h3>Sites</h3>
-					<p>
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							</code></pre>
+						</p>
+						<br />
+						<h4>Sites</h4>
+						<p>
+							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 [ jonny@wheezy ~ ]$ ls /var/www/d7_s1/sites/
 all  default example.sites.php  README.txt
-						</code></pre>
+							</code></pre>
 
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 [ jonny@wheezy ~ ]$ ls /var/www/d7_s2/sites/
 all  default example.sites.php  README.txt
-						</code></pre>
+							</code></pre>
 
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 [ jonny@wheezy ~ ]$ ls /var/www/d7_s3/sites/
 all  default example.sites.php  README.txt
-						</code></pre>
-					</p>
+							</code></pre>
+						</p>
 					</section>
 
-					<section data-background="#007777">
-						<h2>2.2. on Windows</h2>
+					<section data-background="#5d89bc">
+						<h3>2.2. on Windows</h3>
 						<br />
-						<h3>DocumentRoot</h3>
+						<h4>DocumentRoot</h4>
 						<p>
 							...
 						</p>
 						<br />
-						<h3>Sites</h3>
+						<h4>Sites</h4>
 						<p>
 						</p>
 					</section>
@@ -171,46 +172,47 @@ all  default example.sites.php  README.txt
 
 				<section>
 					<section>
-					<h2>3. 何為共用 Drupal Core (核心)？</h2>
-					<p>
-						- 在 DocumentRoot 底下只有一個 Drupal。
-					</p>
-					<br />
-					<p>
-						site1 - <i>http://s1.pig.tw/</i> <br />
-						site2 - <i>http://s2.pig.tw/</i> <br />
-						site3 - <i>http://s3.pig.tw/</i> <br />
-					</p>
+						<h2>3. 何為共用 Drupal Core (核心)？</h2>
+						<p>
+							在 DocumentRoot 底下只有一個 Drupal。
+						</p>
+						<br />
+						<p>
+							site1 - <i>http://s1.pig.tw/</i> <br />
+							site2 - <i>http://s2.pig.tw/</i> <br />
+							site3 - <i>http://s3.pig.tw/</i> <br />
+						</p>
 					</section>
+
 					<section>
-					<h2>3.1. on Linux</h2>
-					<br />
-					<h3>DocumentRoot</h3>
-					<p>
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+						<h3>3.1. on Linux</h3>
+						<br />
+						<h4>DocumentRoot</h4>
+						<p>
+							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 [ jonny@wheezy ~ ]$ ls /var/www
 d7  index.html
-						</code></pre>
-					</p>
-					<br />
-					<h3>Sites</h3>
-					<p>
-						<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							</code></pre>
+						</p>
+						<br />
+						<h4>Sites</h4>
+						<p>
+							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 [ jonny@wheezy ~ ]$ ls /var/www/drupal7/sites/
 all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
-						</code></pre>
-					</p>
-
+							</code></pre>
+						</p>
 					</section>
-					<section data-background="#007777">
-						<h2>3.2. on Windows</h2>
+
+					<section data-background="#5d89bc">
+						<h3>3.2. on Windows</h3>
 						<br />
-						<h3>DocumentRoot</h3>
+						<h4>DocumentRoot</h4>
 						<p>
 							...
 						</p>
 						<br />
-						<h3>Sites</h3>
+						<h4>Sites</h4>
 						<p>
 						</p>
 					</section>
@@ -220,7 +222,7 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 					<section>
 						<h2>4. 何為共用 Modules (模組), Themes (怖景主題)？</h2>
 						<p>
-							- 共用 Drupal 時，將會分享 <i>sites/all</i> 目錄給各個網站。
+							共用 Drupal 時，將會分享 <i>sites/all</i> 目錄給各個網站。
 						</p>
 						<br />
 						<p>
@@ -228,15 +230,17 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 							Themes - <i>sites/all/themes</i> <br />
 						</p>
 					</section>
+
 					<section>
-						<h2>on Linux</h2>
+						<h3>4.1 . on Linux</h3>
 						<br />
 						<p>
 							...
 						</p>
 					</section>
-					<section>
-					<section data-background="#007777">
+
+					<section data-background="#5d89bc">
+						<h3>4.2. on Windows</h3>
 						<br />
 						<p>
 							...
@@ -246,70 +250,110 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 
 				<section>
 					<section>
-						<h2>共用 Modules, Themes 後如何建立獨立的 Module, Themes？</h2>
+						<h2>5. 共用 Modules, Themes 後如何建立獨立的 Module, Themes？</h2>
 						<p>
-							- 手動建立獨立的 modules, themes 目錄。
+							手動建立獨立的 modules, themes 目錄。
 						</p>
 						<br />
-						<h3>site1</h3>
+						<b>SITE1</b>
 						<p>
 							<i>sites/default/modules</i> <br />
 							<i>sites/default/themes</i> <br />
 						</p>
 						<br />
-						<h3>site2</h3>
+						<b>SITE2</b>
 						<p>
 							<i>sites/s1.pig.tw/modules</i> <br />
 							<i>sites/s1.pig.tw/themes</i> <br />
 						</p>
 					</section>
+
 					<section>
-						<h2>on Linux</h2>
+						<h3>5.1. on Linux</h3>
 						<br />
 						<p>
 							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-#modules
+# - modules
 [ jonny@wheezy ~ ]$ mkdir /var/www/d7/sites/default/modules
 
-#themes
+# - themes
 [ jonny@wheezy ~ ]$ mkdir /var/www/d7/sites/default/themes
-						</code></pre>
+							</code></pre>
 						</p>
 						<p>
 							...
 						</p>
 					</section>
-					<section data-background="#007777">
-						<h2>on Windows</h2>
+
+					<section data-background="#5d89bc">
+						<h3>5.2. on Windows</h3>
 						<br />
 						<p>
 							...
 						</p>
 					</section>
+				</section>
+
+				<section data-background="#8c4738">
+					<h2>HowTo</h2>
+					<br />
+					<p>
+						將多個 Domain name 指到同一個 Drupal，並設定對應的 Database 及 <a href="http://zh.wikipedia.org/wiki/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA">Virtual host</a> (讓同一個網頁伺服器使用多個 Domain name 的技術)。
+					</p>
+					<aside class="notes">
+						Point! DNS, Web Server, Database.
+					</aside>
 				</section>
 
 				<section>
-					<section data-background="#8c4738">
-					<h2>HowTo</h2>
+					<section>
+						<h3>Domain Name (網域名稱)</h3>
+
+					</section>
+					<section>
+						<h4>本機 Domain Name 模擬</h4>
+						<p>
+							編寫 hosts 檔案。
+						</p>
 						<br />
 						<p>
-							將多個 Domain name 指到同一個 Drupal，並設定對應的 Database 及 <a href="http://zh.wikipedia.org/wiki/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA">Virtual host</a> (讓同一個網頁伺服器使用多個 Domain name 的技術)。
+							<h5>on Linux</h5>
+							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+[ jonny@wheezy ~ ]$ sudo vi /etc/hosts
+127.0.0.1	s1.pig.tw
+127.0.0.1	s2.pig.tw
+127.0.0.1	s3.pig.tw
+							</code></pre>
 						</p>
-					</section>
-
-					<section>
-						<h2>on Linux</h2>
+						<br />
 						<p>
-							<a href="images/2013-06-30-s1+s2.png" class="test">
-								<img src="images/2013-06-30-s1+s2.png" alt="2013-06-30-s1+s2.png">
-							</a>
-
+							<h5>on Windows</h5>
+							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+[ jonny@win32 ~ ]$  edit C:\Windows\System32\drivers\etc\hosts
+127.0.0.1	s1.pig.tw
+127.0.0.1	s2.pig.tw
+127.0.0.1	s3.pig.tw
+							</code></pre>
 						</p>
-
 					</section>
+
+
 				</section>
 
+				<section>
+					<h3>Database (資料庫)</h3>
 
+				</section>
+
+				<section>
+					<h3>Web Server (網頁伺服器)</h3>
+					<h3>Apache</h3>
+					<p>
+						<a href="images/2013-06-30-s1+s2.png" class="test">
+							<img src="images/2013-06-30-s1+s2.png" alt="2013-06-30-s1+s2.png">
+						</a>
+					</p>
+				</section>
 
 				<section>
 					<h2>Fantastic Ordered List</h2>
