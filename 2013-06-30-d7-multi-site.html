@@ -58,23 +58,72 @@
 						(聽過 Multi-site 的請舉手！)
 					</p>
 					<aside class="notes">
-						<!-- todo -->
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+						Welcome.
 					</aside>
 				</section>
 
-				<!-- Example of nested vertical slides -->
+				<!-- Why use Multi-site ? -->
 				<section>
+					<section data-background="#8c4738">
+						<h2>1. 為什麼要使用 Multi-site？</h2>
+						<br />
+						<p>
+
+						</p>
+						<aside class="notes">
+							= Why use Multi-site ? =
+						</aside>
+					</section>
+
 					<section>
-						<h2>1. 為何 Multi-site？</h2>
+						<h3>1.1. 優點</h2>
+						<br />
+						<p>
+							<ul>
+								<li>易於維護。</li>
+								<br />
+								<li>共用核心 (Drupal core)、模組 (Module)、怖景主題(Themes)。</li>
+								<br />
+								<li>若搭配 <a href="http://drupal.org/project/drush" target="_blank">Drush</a> 可大大加分。</li>
+							</ul>
+						</p>
+						<aside class="notes">
+							Drush (Drupal Shell) 是個類似 bash, DOS 指令介面的強大 Drupal 管理工具，可以使用指令的方式來操作模組，如安裝、啟用、更新及移除，甚至可以觀看錯誤訊息、清除 快取 (Cache) …。
+						</aside>
+					</section>
+
+					<section>
+						<h3>1.2. 缺點</h2>
+						<br />
+						<p>
+							<ul>
+								<li>需擁有自己的<a href="http://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D#" target="_blank">網域名稱 (Domain name)</a>。</li>
+								<br />
+								<li>須懂 <a href="http://linux.vbird.org/linux_server/0360apache.php" target="_blank">Web Server</a> 架構。 <br /></li>
+								<br />
+								<li>須略懂 <a href="http://linux.vbird.org/linux_server/0350dns.php#theory" target="_blank">DNS</a> 架構 (<a href="http://linux.vbird.org/linux_server/0350dns.php#DNS_master_rr" target="_blank">A, CNAME, NS</a>)。 <br /></li>
+							</ul>
+						</p>
+						<aside class="notes">
+							- A: Address，設定單一位址的記錄。
+							- CNAME: 依群組設定 Domain Name 的記錄。
+							- NS: 設定 DNS Server 位址的記錄。
+						</aside>
+					</section>
+				</section>
+
+				<!-- What is Multi-site ? -->
+				<section>
+					<section data-background="#8c4738">
+						<h2>2. 什麼是 Multi-site？</h2>
 						<a href="#" class="test">
 							<img src="images/2013-06-30-multisite.jpg" width="500" alt="2013-06-30-multisite.jpg">
 						</a>
 						<p>
 							<ul>
-								<li>多個 Drupal Core (核心) &nbsp; <b><font color="red">X</font></b></li>
-								<li>共用 Drupal Core (核心) &nbsp; <b><font color="#afd75f">O</font></b></li>
-								<li>共用 Modules (模組), Themes (怖景主題) &nbsp; <b><font color="#afd75f">O</font></b></li>
+								<li>多個 Drupal Core &nbsp; <b><font color="red">X</font></b></li>
+								<li>共用 Drupal Core &nbsp; <b><font color="#afd75f">O</font></b></li>
+								<li>共用 Modules, Themes &nbsp; <b><font color="#afd75f">O</font></b></li>
 								<li>獨立的 sites (網站目錄) &nbsp; <b><font color="#afd75f">O</font></b></li>
 							</ul>
 						</p>
@@ -82,74 +131,71 @@
 						<p>
 							(實作出來的請舉著！)
 						</p>
+						<aside class="notes">
+							= What is Multi-site ? =
+						</aside>
 					</section>
 
 					<section>
-						<h3>1.1. 使用單個 Database 實作</h3>
-						<p>
-							適合空間受限者使用，效能較佳，易於帳號整合。 <br />
+						<ol>
+							<li>
+								使用<b>單</b>個 Database 實作。<br />
+								- 適合空間受限者，效能較佳，易於帳號整合。 <br />
+								- d7db.
+							</li>
 							<br />
-							(d7db)
-						</p>
-					</section>
-
-					<section>
-						<h3>1.2. 使用多個 Database 實作</h3>
-						<p>
-							適合大型網站使用，效能略差，但易於 <strike>上手</strike> 切割、移轉。 <br />
+							<li>
+								使用<b>多</b>個 Database 實作。 <font color="#ffdb00">★★★★★</font> <br />
+								- 適合大型網站，效能略差，但易於 <strike>上手</strike> 切割、移轉。 <br />
+								- s1db, s2db, s3db ......
+							</li>
 							<br />
-							(s1db, s2db, s3db ......)
-						</p>
-					</section>
-
-					<section>
-						<h3>1.3. Reference</h3>
-						<p>
-							<ol>
-								<li><a href="https://drupal.org/documentation/install/multi-site" target="_blank">Multisite - Sharing the same code base | drupal.org</a></li>
-							</ol>
-						</p>
+							<li>
+								Reference <br />
+								- <a href="https://drupal.org/documentation/install/multi-site" target="_blank">Multisite - Sharing the same code base | drupal.org</a>
+							</li>
+						</ol>
 					</section>
 				</section>
 
 				<section>
 					<section>
-					<h2>2. 何為多個 Drupal Core (核心)？</h2>
+					<h3>2.1. 何為多個 Drupal Core？</h3>
 					<p>
-						在 DocumentRoot 底下有多個 Drupal。
+						在 DocumentRoot 底下有多個 Drupal，<font color="#ffdb00">這不是 Multi-site</font>！
 					</p>
 					<br />
 					<p>
-						site1 - <i>http://pig.tw/d7_s1/</i> <br />
-						site2 - <i>http://pig.tw/d7_s2/</i> <br />
-						site3 - <i>http://pig.tw/d7_s3/</i> <br />
+						site1 - <i>http://pig.tw/<font color="#ff0000">d7_s1</font>/</i> <br />
+						site2 - <i>http://pig.tw/<font color="#ff0000">d7_s2</font>/</i> <br />
+						site3 - <i>http://pig.tw/<font color="#ff0000">d7_s3</font>/</i> <br />
 					</p>
 					</section>
 
 					<section>
-						<h3>2.1. on Linux</h3>
+						<h4>2.1.1. on Linux</h4>
 						<br />
-						<h4>DocumentRoot</h4>
+						<h5>DocumentRoot</h5>
 						<p>
-							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							<pre><code data-trim contenteditable>
 [ jonny@wheezy ~ ]$ ls /var/www
 d7_s1  d7_s2  d7_s3  index.html
 							</code></pre>
 						</p>
 						<br />
-						<h4>Sites</h4>
+						<h5>Sites</h5>
 						<p>
-							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							<pre><code data-trim contenteditable>
 [ jonny@wheezy ~ ]$ ls /var/www/d7_s1/sites/
 all  default example.sites.php  README.txt
 							</code></pre>
 
-							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							<pre><code data-trim contenteditable>
 [ jonny@wheezy ~ ]$ ls /var/www/d7_s2/sites/
 all  default example.sites.php  README.txt
 							</code></pre>
 
-							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							<pre><code data-trim contenteditable>
 [ jonny@wheezy ~ ]$ ls /var/www/d7_s3/sites/
 all  default example.sites.php  README.txt
 							</code></pre>
@@ -157,14 +203,14 @@ all  default example.sites.php  README.txt
 					</section>
 
 					<section data-background="#5d89bc">
-						<h3>2.2. on Windows</h3>
+						<h4>2.1.2. on Windows</h4>
 						<br />
-						<h4>DocumentRoot</h4>
+						<h5>DocumentRoot</h5>
 						<p>
 							...
 						</p>
 						<br />
-						<h4>Sites</h4>
+						<h5>Sites</h5>
 						<p>
 						</p>
 					</section>
@@ -172,32 +218,32 @@ all  default example.sites.php  README.txt
 
 				<section>
 					<section>
-						<h2>3. 何為共用 Drupal Core (核心)？</h2>
+						<h3>2.2. 何為共用 Drupal Core？</h3>
 						<p>
 							在 DocumentRoot 底下只有一個 Drupal。
 						</p>
 						<br />
 						<p>
-							site1 - <i>http://s1.pig.tw/</i> <br />
-							site2 - <i>http://s2.pig.tw/</i> <br />
-							site3 - <i>http://s3.pig.tw/</i> <br />
+							site1 - <i>http://<font color="#ff0000">s1</font>.pig.tw/</i> <br />
+							site2 - <i>http://<font color="#ff0000">s2</font>.pig.tw/</i> <br />
+							site3 - <i>http://<font color="#ff0000">s3</font>.pig.tw/</i> <br />
 						</p>
 					</section>
 
 					<section>
-						<h3>3.1. on Linux</h3>
+						<h4>2.2.1. on Linux</h4>
 						<br />
-						<h4>DocumentRoot</h4>
+						<h5>DocumentRoot</h5>
 						<p>
-							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							<pre><code data-trim contenteditable>
 [ jonny@wheezy ~ ]$ ls /var/www
 d7  index.html
 							</code></pre>
 						</p>
 						<br />
-						<h4>Sites</h4>
+						<h5>Sites</h5>
 						<p>
-							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							<pre><code data-trim contenteditable>
 [ jonny@wheezy ~ ]$ ls /var/www/drupal7/sites/
 all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 							</code></pre>
@@ -205,14 +251,14 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 					</section>
 
 					<section data-background="#5d89bc">
-						<h3>3.2. on Windows</h3>
+						<h4>2.2.2. on Windows</h4>
 						<br />
-						<h4>DocumentRoot</h4>
+						<h5>DocumentRoot</h5>
 						<p>
 							...
 						</p>
 						<br />
-						<h4>Sites</h4>
+						<h5>Sites</h5>
 						<p>
 						</p>
 					</section>
@@ -220,27 +266,33 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 
 				<section>
 					<section>
-						<h2>4. 何為共用 Modules (模組), Themes (怖景主題)？</h2>
+						<h3>2.3. 何為共用 Modules, Themes？</h3>
 						<p>
 							共用 Drupal 時，將會分享 <i>sites/all</i> 目錄給各個網站。
 						</p>
 						<br />
 						<p>
-							Modules - <i>sites/all/modules</i> <br />
-							Themes - <i>sites/all/themes</i> <br />
+							Modules - <i>sites/<font color="#ff0000">all</font>/modules</i> <br />
+							Themes - <i>sites/<font color="#ff0000">all</font>/themes</i> <br />
 						</p>
+						<aside class="notes">
+							只要是在 sites/all 底下的模組及怖景主題都會被各個站使用。
+						</aside>
 					</section>
 
 					<section>
-						<h3>4.1 . on Linux</h3>
+						<h4>2.3.1. on Linux</h4>
 						<br />
 						<p>
-							...
+							<pre><code data-trim contenteditable>
+[ jonny@wheezy ~ ]$ ls /var/www/drupal7/sites/all/
+modules  themes
+							</code></pre>
 						</p>
 					</section>
 
 					<section data-background="#5d89bc">
-						<h3>4.2. on Windows</h3>
+						<h4>2.3.2. on Windows</h4>
 						<br />
 						<p>
 							...
@@ -250,29 +302,38 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 
 				<section>
 					<section>
-						<h2>5. 共用 Modules, Themes 後如何建立獨立的 Module, Themes？</h2>
+						<h3>2.4. 共用 Modules, Themes 後如何建立獨立的 Module, Themes？</h3>
 						<p>
 							手動建立獨立的 modules, themes 目錄。
 						</p>
 						<br />
-						<b>SITE1</b>
 						<p>
-							<i>sites/default/modules</i> <br />
-							<i>sites/default/themes</i> <br />
+							<table border="0">
+								<tr>
+									<td>
+										<u>SITE1</u> <br />
+										<i>sites/<font color="#ff0000">default</font>/modules</i> <br />
+										<i>sites/<font color="#ff0000">default</font>/themes</i>
+									</td>
+									<td>
+										<u>SITE2</u> <br />
+										<i>sites/<font color="#ff0000">s1.pig.tw</font>/modules</i> <br />
+										<i>sites/<font color="#ff0000">s1.pig.tw</font>/themes</i> <br />
+									</td>
+								</tr>
+							</table>
 						</p>
-						<br />
-						<b>SITE2</b>
-						<p>
-							<i>sites/s1.pig.tw/modules</i> <br />
-							<i>sites/s1.pig.tw/themes</i> <br />
-						</p>
+						<aside class="notes">
+							在各別網站下安裝的 module, themes 只有個別網站看得到，也就是在 s2 下安裝的 date 模組只有 s2 網站看得到。
+						</aside>
 					</section>
 
 					<section>
-						<h3>5.1. on Linux</h3>
+						<h4>2.4.1. on Linux</h4>
 						<br />
 						<p>
-							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							<b>SITE1</b>
+							<pre><code data-trim contenteditable>
 # - modules
 [ jonny@wheezy ~ ]$ mkdir /var/www/d7/sites/default/modules
 
@@ -280,13 +341,21 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 [ jonny@wheezy ~ ]$ mkdir /var/www/d7/sites/default/themes
 							</code></pre>
 						</p>
+						<br />
 						<p>
-							...
+							<b>SITE2</b>
+							<pre><code data-trim contenteditable>
+# - modules
+[ jonny@wheezy ~ ]$ mkdir /var/www/d7/sites/s2.pig.tw/modules
+
+# - themes
+[ jonny@wheezy ~ ]$ mkdir /var/www/d7/sites/s2.pig.tw/themes
+							</code></pre>
 						</p>
 					</section>
 
 					<section data-background="#5d89bc">
-						<h3>5.2. on Windows</h3>
+						<h4>2.4.2. on Windows</h4>
 						<br />
 						<p>
 							...
@@ -294,31 +363,33 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 					</section>
 				</section>
 
+				<!-- HowTo build Multi-site ? -->
 				<section data-background="#8c4738">
-					<h2>HowTo</h2>
+					<h2>3. 如何使用 Multi-site</h2>
 					<br />
 					<p>
-						將多個 Domain name 指到同一個 Drupal，並設定對應的 Database 及 <a href="http://zh.wikipedia.org/wiki/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA">Virtual host</a> (讓同一個網頁伺服器使用多個 Domain name 的技術)。
+						將多個 Domain Name 指到同一個 Drupal，並設定對應的 Database 及 <a href="http://zh.wikipedia.org/wiki/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA">Virtual host</a>。
 					</p>
 					<aside class="notes">
+						= HowTo = <br />
 						Point! DNS, Web Server, Database.
 					</aside>
 				</section>
 
 				<section>
 					<section>
-						<h3>Domain Name (網域名稱)</h3>
-
+						<h3>3.1. Domain Name</h3>
+						網域名稱 <br />
 					</section>
 					<section>
-						<h4>本機 Domain Name 模擬</h4>
+						<h4>3.1.1. 本機 Domain Name 模擬</h4>
 						<p>
 							編寫 hosts 檔案。
 						</p>
 						<br />
 						<p>
 							<h5>on Linux</h5>
-							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+							<pre><code data-trim contenteditable>
 [ jonny@wheezy ~ ]$ sudo vi /etc/hosts
 127.0.0.1	s1.pig.tw
 127.0.0.1	s2.pig.tw
@@ -328,8 +399,8 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 						<br />
 						<p>
 							<h5>on Windows</h5>
-							<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-[ jonny@win32 ~ ]$  edit C:\Windows\System32\drivers\etc\hosts
+							<pre><code data-trim contenteditable>
+[ jonny@win32 ~ ]$ edit C:\Windows\System32\drivers\etc\hosts
 127.0.0.1	s1.pig.tw
 127.0.0.1	s2.pig.tw
 127.0.0.1	s3.pig.tw
@@ -337,33 +408,148 @@ all  default example.sites.php  README.txt  s2.pig.tw s3.pig.tw
 						</p>
 					</section>
 
+					<section>
+						<h4>3.1.2. 使用 DNS 代管服務</h4>
+						<p>
+							毋需自行架設 DNS Server，容易上手，但功能較多限制。
+						</p>
+						<br />
+						<p>
+							<ul>
+								<li><a href="http://freedns.afraid.org/" target="_blank">FreeDNS</a></li>
+								<li><a href="https://dns.he.net/" target="_blank">Hurricane Electric Hosted DNS</a></li>
+							</ul>
+						</p>
+						<aside class="notes">
+							記錄 (Record) 筆數限制、付費方案 …
+						</aside>
+					</section>
+
+					<section>
+						<h4>3.1.3. 自行架設 DNS Server</h4>
+						<p>
+							需自行架設 DNS Server 及編寫設定檔，適合系統管理者。
+						</p>
+							<br />
+						<p>
+							<ul>
+								<li><a href="http://note.drx.tw/2008/08/serverdns-server-static-adsl.html" target="_blank">凍仁的筆記: DNS Server on Debian 6</a></li>
+							</ul>
+						</p>
+						<aside class="notes">
+							得自行維護及偵錯，但可學到較完整的 DNS 觀念。
+						</aside>
+					</section>
+
+					<section>
+						<h4>3.1.4. 免費 DNS</h4>
+						<p>
+							若不想花錢申請 DNS，可參考網路上的免費資源。</strike>
+						</p>
+						<br />
+						<p>
+							<ul>
+								<li><a href="http://twbbs.org/" target="_blank">TWBBS.org 自由網域</a></a>
+							</ul>
+						</p>
+						<aside class="notes">
+							免費的最貴。
+						</aside>
+					</section>
 
 				</section>
 
 				<section>
-					<h3>Database (資料庫)</h3>
+					<section>
+						<h3>3.2. Database</h3>
+						<p>
+							資料庫
+						</p>
+						<br />
+						<p>
+							MySQL, <a href="http://zh.wikipedia.org/wiki/MariaDB" target="_blank" title="瑪莉亞">MariaDB</a>, MSSQL ...
+						</p>
+						<aside class="notes">
+							MariaDB 是從 MySQL 專案 fock (分支) 出來的版本，完全相容 MySQL 語法。
+						</aside>
+					</section>
 
+					<section>
+						<h4>3.2.1. Client</h4>
+						<p>
+							<b><a href="http://www.phpmyadmin.net/home_page/index.php" target="_blank">phpMyAdmin</a></b>, <a href="http://www.adminer.org/" target="_blank" title="Database management in single PHP file">Adminer</a>, mysql-client (console)
+						</p>
+						<aside class="notes">
+							Adminer - Database management in single PHP file.
+						</aside>
+					</section>
+
+					<section>
+						<h4>3.2.2. 新增資料庫 (phpMyAdmin)</h4>
+							<a href="images/2013-06-30-create-db-with-pma.png" target="_blank"><img src="images/2013-06-30-create-db-with-pma.png" alt="2013-06-30-create-db-with-pma.png" title="2013-06-30-create-db-with-pma.png" /></a> <br />
+					</section>
 				</section>
 
 				<section>
-					<h3>Web Server (網頁伺服器)</h3>
-					<h3>Apache</h3>
-					<p>
-						<a href="images/2013-06-30-s1+s2.png" class="test">
-							<img src="images/2013-06-30-s1+s2.png" alt="2013-06-30-s1+s2.png">
-						</a>
-					</p>
+					<section>
+						<h3>3.3. Web Server</h3>
+						<p>
+							<b>Apache</b>, lighttpd, Nginx, IIS ...
+						</p>
+					</section>
+
+					<section>
+						<p>
+							<ol>
+								<li>
+									Virtual Host (虛擬主機) <font color="#ffdb00">★</font> <br />
+									- 讓同一個 IP 網頁伺服器使用多重 Domain Name 的技術。
+								</li>
+								<br />
+								<li>
+									Apache 參數介紹： <br />
+									- ServerName: 網址。 <br />
+									- DocumentRoot: 網站根目錄。 <br />
+									- ErrorLog: 錯誤訊息。 <br />
+									- CustomLog: 一般訊息。 <br />
+									- Directory: 自訂個別目錄參數。
+								</li>
+							</ol>
+						</p>
+					</section>
+
+					<section>
+						<h4>3.3.1. Virtual Host of Apache on Linux</h4>
+						<p>
+							SITE1 與 SITE2 間除 highlight 的第 6, 9, 10 三行不同外，皆指向同個 DocumentRoot。
+							<a href="images/2013-06-30-s1+s2.png" class="test">
+								<img src="images/2013-06-30-s1+s2.png" alt="2013-06-30-s1+s2.png">
+							</a>
+						</p>
+						<aside class="notes">
+							將多個 Domain Name 指到同一個 Drupal，並設定對應的 Database 及 <a href="http://zh.wikipedia.org/wiki/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA">Virtual host</a>。 <br />
+							<br />
+							- ServerName: 網址。 <br />
+							- DocumentRoot: 網站根目錄。 <br />
+							- ErrorLog: 錯誤訊息。 <br />
+							- CustomLog: 一般訊息。 <br />
+							- Directory: 自訂個別目錄參數。
+						</aside>
+					</section>
+
+					<section data-background="#5d89bc">
+						<h5>3.3.1.2. Apache on Windows</h5>
+						<p>
+							<!-- todo -->
+							<a href="images/2013-06-30-s1+s2.png" class="test">
+								<img src="images/2013-06-30-s1+s2.png" alt="2013-06-30-s1+s2.png">
+							</a>
+						</p>
+					</section>
+				</section>
 				</section>
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
-
+				<!--
 				<section data-markdown>
 					<script type="text/template">
 						## Markdown support
@@ -480,6 +666,7 @@ Reveal.addEventListener( 'customevent', function() {
 						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
 					</blockquote>
 				</section>
+				-->
 
 				<section>
 					<h2>Pretty Code</h2>
