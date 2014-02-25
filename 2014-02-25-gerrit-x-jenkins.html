@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Gerrit x Jenkins</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/serif.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Gerrit x Jenkins</h1>
+					<br />
+					<!--                    <h3>1. 環境建置</h3>-->
+					<!--                    <br />-->
+					<p>
+						<small>Created by <a href="http://note.drx.tw">Chu-Siang Lai</a> / <a href="http://www.plurk.com/chusiang">@chusiang</a></small>
+					</p>
+				</section>
+
+				<section data-background="#ffffff">
+          <h2>1. What is this?</h2>
+            <p>
+
+            </p>
+
+            <aside class="notes">
+
+            </aside>
+				</section>
+
+        <section>
+          <section>
+            <h2>1.1. What is the <strong>Gerrit</strong>?</h2>
+            <br />
+            <ul>
+                <li class="fragment">程式碼審查系統 (Code review system)。</li>
+                <li class="fragment">問題追蹤系統 (Issue tracking system)。</li>
+            </ul>
+
+            <aside class="notes">
+              - 可針多人對特定 code 的 commit、討論。 <br />
+              - 再者因常常 review 他人的 code 所以能互相學習達到 share knowledge 的境界。
+            </aside>
+          </section>
+
+          <section>
+            <img src="images/2014-02-25-android-review.png" alt="" /> <br />
+            <a href="https://android-review.googlesource.com/" target="_blank">https://android-review.googlesource.com/</a>
+          </section>
+        </section>
+
+
+        <section>
+
+          <section>
+            <h2>1.2. What is the <strong>Jenkins</strong>?</h2>
+            <br />
+            <ul>
+              <li class="fragment">持續整合 (CI) 的 web-based 伺服器，並具有極高的擴充性及彈性。</li>
+              <li class="fragment">自動化測試。</li>
+            </ul>
+              
+            <img src="images/2014-02-25-jenkins_logo.png" alt="Jenkins" align="right" />
+
+            <aside class="notes">
+              - 內建套件管理系統。 <br />
+               - Git plugin: 搭配 Git 版本控制系統使用。 <br />
+               - Gerrit Trigger: 串接 Gerrit 與 Jenkins。<br />
+               - Local plugin: 本地語系設定，可依 browser 設定顯示不同語系。 <br />
+               - openid: 讓使用者可使用 Google, Blogger, Yahoo ... 等 openid 登入。
+              - 再者因常常 review 他人的 code 所以能互相學習達到 share knowledge 的境界。
+            </aside>
+          </section>
+
+          <section>
+            <img src="images/2014-02-25-jenkins-dashboard.png" alt="" /> <br />
+            <a href="https://builds.apache.org/" target="_blank">https://builds.apache.org/</a>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>1.3. Gerrit + Jenkins = ?</h2>
+
+          </section>
+          <section>
+            <a href="images/2014-02-25-GxJ-workflow-terry.png" target="_blank">
+              <img src="images/2014-02-25-GxJ-workflow-terry.png" alt="" />
+            </a> <br />
+            資料來源：Terry Li
+          </section>
+          <section>
+            <a href="images/2014-02-25-HH_HTML5_DevEnv_Workflow.png" target="_blank">
+              <img src="images/2014-02-25-HH_HTML5_DevEnv_Workflow.png" alt="" />
+            </a> <br />
+            資料來源：Jocelyn Yang
+          </section>
+          <section>
+            <a href="images/2014-02-25-GxJ-workflow.png" target="_blank">
+              <img src="images/2014-02-25-GxJ-workflow.png" alt="" />
+            </a> <br />
+            資料來源：<a href="http://bretterhofer.at/blog/2013/02/workflow-model-using-gerrit-and-jenkins-together/" target="_blank">Workflow model: Using Gerrit and Jenkins together | Christian Bretterhofer</a>
+          </section>
+            
+        </section>
+
+				<section data-background="#ffffff">
+          <h2>2. How to Usage?</h2>
+				</section>
+
+        <section>
+          <h2>2.1. Gerrit site</h2>
+        </section>
+
+				<section>
+				  <section>
+            <h3>Create New Project</h3>
+            Gerrit → Project → Create New Project ... 
+            <img src="images/2014-02-25-gerrit-usage-1.png" alt="" /> <br />
+				  </section>
+				  <section>
+            Result
+            <img src="images/2014-02-25-gerrit-usage-2.png" alt="" /> <br />
+				  </section>
+				</section>
+
+				<section>
+				  <section>
+            <h3>First Commit</h3>
+            <br />
+            <p>
+              <pre><code data-trim contenteditable>
+$ git clone   ssh://jonny@192.168.33.25:29418/demo
+              </code></pre>
+
+              <pre><code data-trim contenteditable>
+$ echo 'Hell  o World' &gt; readme.rst
+              </code></pre>
+
+              <pre><code data-trim contenteditable>
+$ git add re  adme.rst
+              </code></pre>
+
+              <pre><code data-trim contenteditable>
+$ git commit   -m "first commit."
+              </code></pre>
+            </p>
+				  </section>
+
+				  <section>
+            <code> git push ? </code>
+            <br /> &nbsp; <br />
+
+            <blockquote class="fragment">
+              Gerrit 預設不允許直接對分支 (branch) push，需對 refs/for/&lt;branch-name&gt; 特殊引用 push 才可將提交納入審查系統。
+            </blockquote>
+				  </section>
+
+				  <section>
+            除了使用 <code>HEAD:refs/for/master</code> 的 branch 以外，還需在 commit 裡補上 <code>Change-Id</code>。
+            <pre><code data-trim contenteditable style="max-height: 600px">
+$ git push origin HEAD:refs/for/master
+Counting objects: 4, done.
+Writing objects: 100% (3/3), 252 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+remote: Processing changes: refs: 1, done    
+remote: ERROR: missing Change-Id in commit message footer
+remote: Suggestion for commit message:
+remote: first commit.
+remote: 
+remote: Change-Id: I9001c46e4afae9f3e0021f7aba6608dccf05295e
+remote: 
+remote: Hint: To automatically insert Change-Id, install the hook:
+remote:   gitdir=$(git rev-parse --git-dir); scp -p -P 29418 jonny@192.168.33.25:hooks/commit-msg ${gitdir}/hooks/
+remote: 
+remote: 
+To ssh://jonny@192.168.33.25:29418/demo
+ ! [remote rejected] HEAD -> refs/for/master (missing Change-Id in commit message footer)
+error: failed to push some refs to 'ssh://jonny@192.168.33.25:29418/demo'
+            </code></pre>
+
+            <pre><code data-trim contenteditable>
+$ git commit --amend 
+...
+Change-Id: I9001c46e4afae9f3e0021f7aba6608dccf05295e
+            </code></pre>
+          </section>
+
+          <section>
+            push success.
+            <pre><code data-trim contenteditable>
+$ git push origin HEAD:refs/for/master
+Counting objects: 4, done.
+Writing objects: 100% (3/3), 295 bytes, done.
+Total 3 (delta 0), reused 0 (delta 0)
+remote: Processing changes: new: 1, refs: 1, done    
+remote: 
+remote: New Changes:
+remote:   http://192.168.33.25/13
+remote: 
+To ssh://jonny@192.168.33.25:29418/demo
+ * [new branch]      HEAD -> refs/for/master
+            </code></pre>
+
+            <br />
+            <p class="fragment">
+              ※ 可搭配 git-review 簡化 git push，但需先行設定相關參數。
+            </p>
+          </section>
+				</section>
+
+        <section>
+
+          <section>
+            <h3>Code-review</h3>
+            <br />
+              <a href="images/2014-02-25-gerrit-usage-3.png" target="_blank">
+                <img src="images/2014-02-25-gerrit-usage-3.png" alt="" /></a> <br />
+              <a href="http://192.168.33.25/#/c/13/" target="_blank">http://192.168.33.25/#/c/13/</a>
+            </section>
+
+            <section>
+              <a href="images/2014-02-25-gerrit-usage-4.png" target="_blank">
+                <img src="images/2014-02-25-gerrit-usage-4.png" alt="" /></a> <br />
+              <a href="http://192.168.33.25/#/c/13/1,publish" target="_blank">http://192.168.33.25/#/c/13/1,publish</a>
+            </section>
+
+            <section>
+              <p>
+                push code 以後除了 Reviewer 人工審核外，也可搭配 jenkins 進行自動測試 (請搭配 <a href="#/4/1" target="_blank">流程圖</a> 理解觀念)。
+              </p>
+              <br />
+              <p class="fragment highlight-red">
+                ※ 由於在下還不會撰寫測試 code，故此 Demo 為手動 Verified。
+              </p>
+
+              <aside class="notes">
+                gerrit-trigger 
+              </aside>
+            </section>
+
+            <section>
+              <a href="images/2014-02-25-gerrit-usage-5.png" target="_blank">
+                <img src="images/2014-02-25-gerrit-usage-5.png" alt="" /></a> <br />
+              <a href="http://192.168.33.25/#/c/13/" target="_blank">http://192.168.33.25/#/c/13/</a>
+            </section>
+
+            <section>
+              <a href="images/2014-02-25-gerrit-usage-6.png" target="_blank">
+                <img src="images/2014-02-25-gerrit-usage-6.png" alt="" /></a> <br />
+              <a href="http://192.168.33.25/#/c/13/" target="_blank">http://192.168.33.25/#/c/13/</a>
+            </section>
+
+        </section>
+
+
+				<section>
+
+          <section>
+            <h2>2.2. Jenkins site</h2>
+            <br />
+            <p class="fragment highlight-red">
+              ※ 由於 Jenkins 還未建置完，故只 Demo 部份功能。
+            </p>
+          </section>
+
+          <section>
+            Dashboard <br />
+            <code style="font-size: x-large; color: #656565">
+              S: 上次建置狀態, 
+              W: 建置成功率。
+            </code>
+            <a href="images/2014-02-25-jenkins-usage-1.png" target="_blank">
+              <img src="images/2014-02-25-jenkins-usage-1.png" alt="" /></a> <br />
+            <a href="http://192.168.33.25:8080/" target="_blank">http://192.168.33.25:8080/</a>
+          </section>
+
+          <section>
+            Building with javac.
+            <a href="images/2014-02-25-jenkins-usage-2.png" target="_blank">
+              <img src="images/2014-02-25-jenkins-usage-2.png" alt="" /></a> <br />
+            <a href="http://192.168.33.25:8080/job/HelloWorld/" target="_blank">http://192.168.33.25:8080/job/HelloWorld/</a>
+          </section>
+
+          <section>
+            Message.
+            <a href="images/2014-02-25-jenkins-usage-3.png" target="_blank">
+              <img src="images/2014-02-25-jenkins-usage-3.png" alt="" /></a> <br />
+            <a href="http://192.168.33.25:8080/job/HelloWorld/10/console" target="_blank">http://192.168.33.25:8080/job/HelloWorld/10/console</a>
+          </section>
+
+          <section>
+            Building with not gerrit.
+            <a href="images/2014-02-25-jenkins-usage-4.png" target="_blank">
+              <img src="images/2014-02-25-jenkins-usage-4.png" alt="" /></a> <br />
+            <a href="http://192.168.33.25:8080/job/sandbox/" target="_blank">http://192.168.33.25:8080/job/sandbox/</a>
+          </section>
+
+          <section>
+            Building with gerrit and not testing code.
+            <a href="images/2014-02-25-jenkins-usage-5.png" target="_blank">
+              <img src="images/2014-02-25-jenkins-usage-5.png" alt="" /></a> <br />
+            <a href="http://192.168.33.25:8080/job/sandbox/" target="_blank">http://192.168.33.25:8080/job/sandbox/</a>
+          </section>
+
+          <section>
+            Reviewing with gerrit. <br />
+            <a href="images/2014-02-25-jenkins-usage-6.png" target="_blank">
+              <img src="images/2014-02-25-jenkins-usage-6.png" alt="" /></a> <br />
+            <a href="http://192.168.33.25/#/c/12/" target="_blank">http://192.168.33.25/#/c/12/</a>
+          </section>
+        </section>
+
+
+
+        <section>
+          <section>
+            <h2>2.3. Mail site</h2>
+          </section>
+
+          <section>
+            [Gerrit] Change in demo[master]: first commit.
+            <pre><code data-trim contenteditable style="max-height: 800px">
+jenkins@gerrit has posted comments on this change.
+
+Change subject: first commit.
+......................................................................
+
+
+Patch Set 1: Verified+1
+
+manual verified by jenkins user.
+
+--
+To view, visit http://192.168.33.25/13
+To unsubscribe, visit http://192.168.33.25/settings
+
+Gerrit-MessageType: comment
+Gerrit-Change-Id: I9001c46e4afae9f3e0021f7aba6608dccf05295e
+Gerrit-PatchSet: 1
+Gerrit-Project: demo
+Gerrit-Branch: master
+Gerrit-Owner: Chu-Siang lai &lt;chusiang.lai (dot) gmail.com&gt;
+Gerrit-Reviewer: Chu-Siang lai &lt;chusiang.lai (dot) gmail.com&gt;
+Gerrit-Reviewer: jenkins@gerrit
+Gerrit-HasComments: No
+            </code></pre>
+          </section>
+
+          <section>
+            [Gerrit] Change in sandbox[master]: testing
+            <pre><code data-trim contenteditable style="max-height: 800px">
+jenkins@gerrit has posted comments on this change.
+
+Change subject: testing
+......................................................................
+
+
+Patch Set 1:
+
+Build Started http://192.168.33.25:8080/job/sandbox/18/
+            </code></pre>
+
+            <pre><code data-trim contenteditable style="max-height: 800px">
+jenkins@gerrit has posted comments on this change.
+
+Change subject: testing
+......................................................................
+
+
+Patch Set 1:
+
+Build Failed
+
+http://192.168.33.25:8080/job/sandbox/18/ : FAILURE
+            </code></pre>
+
+          </section>
+
+          <section>
+            [Jenkins] 建置失敗: sandbox #18
+            <pre><code data-trim contenteditable>
+查看 &lt;http://192.168.33.25:8080/job/sandbox/18/&gt;
+
+------------------------------------------
+Triggered by Gerrit: http://192.168.33.25/12
+建置中 工作區 &lt;http://192.168.33.25:8080/job/sandbox/ws/&gt;
+Fetching changes from the remote Git repository
+Fetching upstream changes from ssh://jenkins@192.168.33.25:29418/sandbox.git
+ERROR: Couldn't find any revision to build. Verify the repository and branch configuration for this job.
+            </code></pre>
+
+          </section>
+
+
+
+        </section>
+
+
+				<section>
+					<h1>THE END</h1>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+		progress: true,
+		history: true,
+		center: true,
+
+		theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+		// Parallax scrolling
+		// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+		// parallaxBackgroundSize: '2100px 900px',
+
+		// Optional libraries used to extend on reveal.js
+		dependencies: [
+		{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		]
+		});
+
+		</script>
+
+	</body>
+</html>
