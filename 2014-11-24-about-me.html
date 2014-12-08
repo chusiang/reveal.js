@@ -58,6 +58,7 @@
               - 參與社群活動時大家都叫我凍仁翔。
               - 若要使用英文名稱呼的話可以叫我 Jonny。
               - 在網路上習慣使用 chusiang 作為自己的 ID。
+              - Dr. Ubuntu
             </aside>
 				</section>
 
@@ -133,34 +134,36 @@
           <br />
           <ul style="color: #656565">
             <li class="fragment">LAMP</li>
-            <li class="fragment">MySQL InnoDB, HA</li>
+            <li class="fragment">MySQL (InnoDB, HA)</li>
             <li class="fragment">F5 BIG-IP</li>
           </ul>
 
           <aside class="notes">
             - 大部份套件需自行編譯。
-            - 採用 BIG-F5 是為高可用性 (HA)。
+            - The Database About 5 master and 8 slave.
+            - 採用 BIG-F5 是為高可用性 (HA) 機制所採用，可快速切換 Pool 內的機器以延續服務。
           </aside>
 
         </section>
 
         <section>
           <section>
-          <h2>Web Developer</h2>
-          <br />
-          <p>
-            撰寫某租屋網。
-          </p>
+            <h2>Web Developer</h2>
+            <br />
+            <p>
+              撰寫某租屋網。
+            </p>
+
+            <aside class="notes">
+              - LAMP 架構。
+              - 從規劃至開發時間不到 2 個月。
+              - 從 Database 規劃到前後台功能撰寫，圖和 CSS 例外。
+            </aside>
+
           </section>
 
           <section>
             <a href="http://lgd.csu.edu.tw:8080/" target="_blank"><img src="../impress.js/images/2013-02-27_rent.png" width="800" alt="http://lgd.csu.tw:8080" title="http://lgd.csu.edu.tw:8080" /></a>
-
-            <aside class="notes">
-              - LAMP。
-              - 從規劃至開發時間不到 2 個月。
-              - 從 Database 規劃到前後台功能撰寫，圖和 CSS 例外。
-            </aside>
 
           </section>
         </section>
@@ -178,9 +181,8 @@
             </ul>
 
             <aside class="notes">
+              - 主要在進行整合服務，提供 KVM, VCS, Code Review, Build service.
               - Mantis: Issue Tracking.
-              - 
-              - 
             </aside>
 
           </section>
@@ -194,9 +196,9 @@
             <a href="http://gaia.gixia-group.com/" target="_blank"><img src="images/2014-06-09-gaia-1.png" width="600" alt="http://gaia.gixia-group.com" title="http://gaia.gixia-group.com" /></a>
 
             <aside class="notes">
-              - LAMP。
-              - GAIA 是一個保護創作者想法的數位平台，藉由其獨特的簽章來記錄其作品等相關資訊。
-              - 接手約 3 個月，並於途中得知關站訊息。
+              - Ubuntu GNU/Linux, Apache, MySQL, PHP.
+              - GAIA 是一個保護創作者想法的數位平台，藉由其獨特的簽章 (QR Code) 來記錄其作品等相關資訊。
+              - 接手約 3 個月，並於途中得知關站訊息，並撰寫一系列的關站服務，如打包備份作品 (圖、文)、關站通知信 … 等。
             </aside>
           </section>
 
@@ -204,7 +206,7 @@
             <h3>XXXXX</h3>
             <br />
             <p>
-              建置開發環境和整合自動化測試。
+              建置開發環境和整合自動化測試 (Code Review, Auto Build)。
             </p>
 
             <a href="images/2014-02-25-HH_HTML5_DevEnv_Workflow.png" target="_blank">
@@ -214,8 +216,8 @@
             <aside class="notes">
               - 基於保密原則故使用 XXXXX。
               - 接手約 4 個月。
-              - Daily/Weekly build, Trigger build for AOSP.
-              - 測試程式另有他人撰寫。
+              - 建置 Code Review 和 Auto Build (Daily/Weekly build, Trigger build for AOSP) 服務。
+              - 測試 code 部份另有他人撰寫。
             </aside>
           </section>
 
